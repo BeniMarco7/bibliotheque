@@ -1,67 +1,73 @@
 <?php
-include('db.php');
-session_start();
-if (isset($_SESSION['user'])) {
-    header("Location: index.php");
-}
-$error = "";
+include 'header.php'; // Inclut le header, qui gère aussi session_start()
+include 'config.php'; // Inclut la connexion à la base de données
 
+$error_message = '';
+$email = '';
 
-if (isset($_POST['login'])) {
-    extract($_POST);
-    if (!empty($username) && !empty($password)) {
-        $password = sha1($password);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
+
+    if (empty($email) || empty($password)) {
+        $error_message = "Veuillez remplir tous les champs.";
+    } else {
         try {
-            $req = $req = $connection -> query("SELECT * from user WHERE email= '$username' AND password= '$password' ");
-            $user = $req ->fetch();
-            var_dump($user);
-        } catch (PDOException $e){
-            var_dump($e -> getMessage());
+            // Préparer la requête SQL pour récupérer l'utilisateur par email
+            $stmt = $pdo->prepare("SELECT id, username, email, password FROM users WHERE email = :email");
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->execute();
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Vérifier si un utilisateur a été trouvé et si le mot de passe correspond
+            if ($user && password_verify($password, $user['password'])) {
+                // Connexion réussie : enregistrer les informations de l'utilisateur en session
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['email'] = $user['email']; // Optionnel, mais peut être utile
+
+                // Rediriger l'utilisateur vers la page d'accueil ou un tableau de bord
+                header('Location: index.php');
+                exit();
+            } else {
+                $error_message = "Email ou mot de passe incorrect.";
+            }
+        } catch (PDOException $e) {
+            $error_message = "Une erreur est survenue lors de la connexion. Veuillez réessayer. (Erreur: " . $e->getMessage() . ")";
+            // En production, ne pas afficher $e->getMessage()
         }
-    } else {
-        $error = "Merci de bien vouloir renseigner tous les champs";
     }
 }
-
-
-/*
-if (isset($_GET['username']) && isset($_GET['password'])) {
-    $_username = $_GET["username"];
-    $_password = $_GET["password"];
-
-    if ($username = $_username && $password =$_password) {
-        header(google.com);
-    } else {
-        $error = "Utilisateur introuvable";
-    }
-    
-}
-*/
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<div class="auth-page-container">
+    <div class="card p-4 shadow-sm login-card">
+        <div class="text-center mb-4">
+            <img src="images/logo.png" alt="Biblizone Logo" class="img-fluid mb-3" style="max-width: 80px;">
+            <h2 class="card-title mb-0">BIBLIZONE</h2>
+            <p class="text-muted mt-2">Connectez-vous sur BIBLIZONE pour avoir plus de possibilités</p>
+        </div>
+        <form action="login.php" method="POST">
+            <?php if (!empty($error_message)): ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php echo htmlspecialchars($error_message); ?>
+                </div>
+            <?php endif; ?>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Votre email" required value="<?php echo htmlspecialchars($email); ?>">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Votre mot de passe" required>
+                <small class="d-block text-end mt-2"><a href="#" class="text-decoration-none">Mot de passe oublié ?</a></small>
+            </div>
+            <div class="d-grid gap-2 mb-4">
+                <button type="submit" class="btn btn-dark btn-lg">Connexion</button>
+            </div>
+        </form>
+        <p class="text-center text-muted">Vous n'êtes pas encore sur BIBLIZONE ? <a href="register.php" class="text-decoration-none">Inscription</a></p>
+    </div>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form  action="login.php">
-        <input name="username" type="text" 
-        placeholder="Nom d'utilisateur">
-        <br><br>
-        <input name="password" type ="password" 
-        placeholder="Mot de Passe">
-        <br><br>
-        <input name="login" type="submit"
-        value="Connexion">
-    </form>
-
-    <p><?php echo $error; ?></p>
-       
-</body>
-
-</html>
-
+<?php include 'footer.php'; ?>
