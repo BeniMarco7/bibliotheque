@@ -1,6 +1,6 @@
 <?php
 include 'header.php'; // Inclut le header, qui gère aussi session_start()
-include 'config.php'; // Inclut la connexion à la base de données
+include 'db.php'; // Inclut la connexion à la base de données
 
 // Initialiser le panier si ce n'est pas déjà fait
 if (!isset($_SESSION['cart'])) {
