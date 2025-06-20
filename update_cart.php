@@ -2,7 +2,7 @@
 session_start();
 include 'config.php'; // Inclure la connexion à la base de données
 
-header('Content-Type: application/json'); // Assurez-vous que la réponse est JSON
+header('Content-Type: application/json'); // S'assurer que la réponse est JSON
 
 $response = ['success' => false, 'message' => '', 'cart_count' => 0, 'cart_empty' => false];
 
