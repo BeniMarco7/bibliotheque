@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php'; // Inclure la connexion à la base de données
+include 'db.php'; // Inclure la connexion à la base de données
 
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] <= 0) {
