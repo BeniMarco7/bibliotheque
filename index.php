@@ -1,6 +1,5 @@
 <?php
 include 'header.php'; // Inclut le header, qui gère aussi session_start()
-// include 'config.php'; // Inclus si vous avez besoin de la connexion DB ici, mais pas nécessaire pour les citations statiques
 ?>
 
 <main>
