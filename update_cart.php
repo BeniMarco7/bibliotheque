@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php'; // Inclure la connexion à la base de données
+include 'db.php'; // Inclure la connexion à la base de données
 
 header('Content-Type: application/json'); // S'assurer que la réponse est JSON
 
