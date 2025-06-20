@@ -7,15 +7,12 @@ include 'header.php'; // Inclut le header, qui gère aussi session_start()
     <section class="hero-section text-center d-flex align-items-center justify-content-center">
         <div class="container text-white">
             <h1 class="display-3">Bienvenue sur Biblizone</h1>
-            <p class="lead mb-4">Votre site de bibliothèque en ligne entièrement fait par des <br> ETUDIANTS !</p>
-            <a href="livres.php" class="btn btn-custom btn-lg">Découvrez nos catégories</a>
+            <p class="lead mb-4">Votre site de bibliothèque en ligne entièrement fait par des <br> ETUDIANTS !<br> Un livre c'est plus que du texte, c'est une aventure, une émotion, un souvenir <br>Plonge dans ta nouvelle aventure maintenant !</p>
+            <a href="livres.php" class="btn btn-custom btn-lg">Découvrez notre catalogue</a>
         </div>
     </section>
 
-    <section class="background-image-section d-flex align-items-center justify-content-center text-white py-5">
-        <div class="container text-center">
-            </div>
-    </section>
+
 
 <img src="images/bibliotheque.png" alt="Bibliothèque" class="hero-bottom-image mt-5 img-fluid">
 
