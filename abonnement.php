@@ -1,6 +1,6 @@
 <?php
 include 'header.php'; // Inclut le header, qui gère aussi session_start()
-// include 'config.php'; // Si besoin plus tard
+// include 'db.php'; // n'ayant pas pu implémenter correctement la fonctionnalité, la base de données ne sert à rien
 ?>
 
 <!-- PAGE ABONNEMENT -->
