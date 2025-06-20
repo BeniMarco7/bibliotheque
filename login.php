@@ -1,6 +1,6 @@
 <?php
 include 'header.php'; // Inclut le header, qui gère aussi session_start()
-include 'config.php'; // Inclut la connexion à la base de données
+include 'db.php'; // Inclut la connexion à la base de données
 
 $error_message = '';
 $email = '';
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         try {
             // Préparer la requête SQL pour récupérer l'utilisateur par email
-            $stmt = $pdo->prepare("SELECT id, username, email, password FROM users WHERE email = :email");
+            $stmt = $pdo->prepare("SELECT id, username, name, email, password, access FROM users WHERE email = :email");
             $stmt->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt->execute();
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -22,16 +22,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Vérifier si un utilisateur a été trouvé et si le mot de passe correspond
             if ($user && password_verify($password, $user['password'])) {
                 // Connexion réussie : enregistrer les informations de l'utilisateur en session
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['email'] = $user['email']; // Optionnel, mais peut être utile
+                $_SESSION['user'] = [
+                    'id' => $user['id'],
+                    'username' => $user['username'],
+                    'nom' => $user['name'],
+                    'email' => $user['email'],
+                    'access' => $user['access']
+                ];
+                $_SESSION['user_id'] = $user['id']; // pour notre header
+                $_SESSION['username'] = $user['username']; // pour notre header
+                $_SESSION['email'] = $user['email']; // pour notre header
 
-                // Rediriger l'utilisateur vers la page d'accueil ou un tableau de bord
-                header('Location: index.php');
-                exit();
+
+                // Rediriger en fonction du rôle
+                if ($user['access'] == 1) {
+                    header('Location: admin.php');
+                    exit();
+                } elseif ($user['access'] == 0) {
+                    header('Location: index.php');
+                    exit();
+                } elseif ($user['access'] == 2) {
+                    die('Votre compte est restreint. Contactez un administrateur.');
+                }
+
             } else {
                 $error_message = "Email ou mot de passe incorrect.";
             }
+
         } catch (PDOException $e) {
             $error_message = "Une erreur est survenue lors de la connexion. Veuillez réessayer. (Erreur: " . $e->getMessage() . ")";
             // En production, ne pas afficher $e->getMessage()
