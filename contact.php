@@ -1,6 +1,6 @@
 <?php
 include 'header.php'; // Inclut le header, qui gère aussi session_start()
-// Pas besoin de config.php ici car nous n'interagissons pas avec la base de données pour l'envoi du formulaire.
+
 
 $message_sent = false;
 $error_message = '';
