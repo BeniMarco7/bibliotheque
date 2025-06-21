@@ -8,21 +8,21 @@ traditionnelle.
 
 Mode d'emploi : 
 
-# Télécharger l’archive ZIP du projet (ou cloner le dépôt Git s’il y en a un).
-# Décompresser le dossier bibliotheque sur votre ordinateur.
-# Copier le projet dans le dossier XAMPP :
+- Télécharger l’archive ZIP du projet (ou cloner le dépôt Git s’il y en a un).
+- Décompresser le dossier bibliotheque sur votre ordinateur.
+- Copier le projet dans le dossier XAMPP :
 C:\xampp\htdocs\bibliotheque\
 
-# Démarrer XAMPP :
-- Lancer Apache
-- Lancer MySQL
-# Ouvrir phpMyAdmin :
+- Démarrer XAMPP :
+ Lancer Apache
+ Lancer MySQL
+- Ouvrir phpMyAdmin :
 http://localhost/phpmyadmin
 
-# Créer une base de données nommée biblizone
-# Importer le fichier biblizone.sql fourni (via l'onglet "Importer")
+- Créer une base de données nommée biblizone
+- Importer le fichier biblizone.sql fourni (via l'onglet "Importer")
 
-# Lancer le site :
+- Lancer le site :
 http://localhost/bibliotheque/
 
 
