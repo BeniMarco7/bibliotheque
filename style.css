@@ -1,0 +1,610 @@
+/* Styles Généraux et Réinitialisation */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Couleur de fond par défaut pour les pages Accueil, Livres, Abonnements */
+body {
+    background-color: #E2B27E; /* La couleur de fond beige/marron claire */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styles pour le header */
+.top-bar {
+    background-color: black;
+    height: 5px;
+}
+
+.navbar-custom {
+    background-color: white;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.navbar-brand-logo {
+    height: 40px;
+    margin-right: 5px;
+}
+
+.navbar-brand-text {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #333;
+    line-height: 1;
+}
+
+.nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    margin-right: 15px;
+}
+
+.nav-link:hover {
+    color: #E2B27E !important;
+}
+
+.user-icon {
+    font-size: 1.8rem;
+    color: #E2B27E;
+    margin-left: 20px;
+}
+
+/* Styles pour la section Hero (Accueil) */
+.hero-section {
+    padding: 8rem 0;
+    text-align: center;
+    color: white;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: black;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: black;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-section .btn-custom {
+    background-color: white;
+    color: #E2B27E;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.hero-section .btn-custom:hover {
+    background-color: #f0f0f0;
+    color: #D1A36F;
+}
+
+.hero-bottom-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.hero-bottom-image {
+    width: 100%;
+    height: 400px; /* C'est la hauteur que vous voulez appliquer par défaut */
+    object-fit: cover;
+    object-position: bottom; /* Garde cette propriété si elle est importante pour vous */
+    /* Assurez-vous qu'il n'y a pas d'autres propriétés 'height' ou 'width' ici qui annuleraient celle-ci */
+}
+
+/* Styles pour la section Citations du jour */
+.citations-section {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.citations-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: left;
+    margin-left: 10%;
+}
+
+.citation-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,.08);
+    text-align: left;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.citation-card p:first-child {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.citation-card p:last-child {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #E2B27E;
+    text-align: right;
+    margin-top: auto;
+}
+
+/* Styles pour la page Livres */
+.book-page-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    flex-grow: 1; /* Permet au contenu de prendre l'espace disponible */
+}
+
+.filters-sidebar {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.08);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.filters-sidebar h4 {
+    color: #333;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.filters-sidebar .form-check {
+    margin-bottom: 0.5rem;
+}
+
+.filters-sidebar .form-check-label {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.3;
+}
+
+.price-range span {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.price-range .form-range {
+    width: 100%;
+}
+
+.search-bar .form-control {
+    border-color: #E2B27E;
+    box-shadow: none;
+}
+
+.search-bar .form-control:focus {
+    border-color: #D1A36F;
+    box-shadow: 0 0 0 0.25rem rgba(226, 178, 126, 0.25);
+}
+
+.search-button {
+    background-color: #E2B27E;
+    border-color: #E2B27E;
+    color: white;
+}
+
+.search-button:hover {
+    background-color: #D1A36F;
+    border-color: #D1A36F;
+}
+
+.sort-options .btn-sort {
+    background-color: white;
+    color: #333;
+    border: 1px solid #ccc;
+    margin-left: 5px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+.sort-options .btn-sort.active {
+    background-color: #E2B27E;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.sort-options .btn-sort:hover {
+    background-color: #D1A36F;
+    border-color: #D1A36F;
+}
+
+.book-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.08);
+    overflow: hidden;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-card .card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.book-card .card-body {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.book-card .card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.book-card .card-text {
+    font-size: 1.1rem;
+    color: #E2B27E;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+/* Styles pour la page d'abonnements */
+.subscription-page-container {
+    padding: 3rem 0;
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Permet au contenu de prendre l'espace disponible */
+}
+
+.subscription-toggle-container {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-subscription-toggle {
+    background-color: white;
+    border: none;
+    color: #333;
+    font-weight: bold;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    text-align: center;
+    min-width: 180px;
+}
+
+.btn-subscription-toggle.active {
+    background-color: #E2B27E;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+
+.btn-subscription-toggle:not(.active):hover {
+    background-color: #f0f0f0;
+}
+
+.subscription-card {
+    border: none;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 15px rgba(0,0,0,.15);
+    text-align: center;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-fontaine {
+    background-color: white;
+    color: #333;
+}
+
+.card-shakespeare {
+    background-color: #343a40;
+    color: white;
+}
+
+.subscription-card .card-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.subscription-card .subscription-price {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.subscription-card .subscription-price .duration {
+    font-size: 1.5rem;
+    font-weight: normal;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.subscription-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.subscription-features li i {
+    color: #E2B27E;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.card-shakespeare .subscription-features li i {
+    color: #E2B27E;
+}
+
+.btn-subscribe {
+    width: 80%;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.card-fontaine .btn-subscribe {
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+.card-fontaine .btn-subscribe:hover {
+    background-color: #555;
+}
+
+.card-shakespeare .btn-subscribe {
+    background-color: white;
+    color: #333;
+    border: none;
+}
+
+.card-shakespeare .btn-subscribe:hover {
+    background-color: #f0f0f0;
+}
+
+/* NOUVEAUX STYLES / MODIFICATIONS MAJEURES POUR LES PAGES AUTHENTIFICATION */
+
+/* Styles Généraux et Réinitialisation */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Couleur de fond par défaut pour les pages Accueil, Livres, Abonnements, et maintenant Contact/Authentification */
+body {
+    background-color: #E2B27E; /* La couleur de fond beige/marron claire */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ... (votre code CSS existant pour header, hero, citations, livres, abonnements) ... */
+
+
+/* NOUVEAUX STYLES / MODIFICATIONS MAJEURES POUR LES PAGES AUTHENTIFICATION ET CONTACT */
+
+/* Conteneur principal pour les pages d'authentification (Login, Register) */
+/* AJOUTER OU MODIFIER LA CLASSE POUR LE CONTENEUR DE CONTACT ICI */
+.auth-page-container, .contact-page-container { /* Cible les deux types de pages */
+    background-color: #E2B27E; /* Le fond beige très clair pour cette section */
+    flex-grow: 1; /* Permet de prendre tout l'espace vertical disponible */
+    display: flex; /* Utilise flexbox pour le centrage */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    padding: 20px; /* Un peu de padding autour du contenu */
+    /* Retirez background-image, background-size, background-position, background-repeat si vous ne voulez pas d'image de fond sur ces pages */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+}
+
+
+/* Styles pour la carte de connexion/inscription et contact */
+.login-card, .register-card, .contact-card { /* Cibler les trois cartes avec une seule règle */
+    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+    border-radius: 15px;
+    padding: 2.5rem !important; /* Padding interne généreux, utilisez !important si Bootstrap a une règle plus spécifique */
+    box-shadow: 0 8px 15px rgba(0,0,0,.15);
+    max-width: 450px; /* Légèrement augmenté pour mieux s'adapter */
+    width: 90%;
+    margin-left: auto; /* Centre la carte si l'écran est plus large que max-width */
+    margin-right: auto;
+}
+
+/* Ajustements pour les éléments à l'intérieur des cartes d'authentification et contact */
+.login-card .card-title, .register-card .card-title, .contact-card .card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* Conteneur principal pour les pages d'authentification (Login, Register) */
+.auth-page-container {
+    background-color: #E2B27E; /* Le fond beige très clair pour cette section */
+    flex-grow: 1; /* Permet de prendre tout l'espace vertical disponible */
+    display: flex; /* Utilise flexbox pour le centrage */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    padding: 20px; /* Un peu de padding autour du contenu */
+    background-size: cover; /* L'image couvre tout le conteneur */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat;
+}
+
+
+/* Styles pour la carte de connexion/inscription */
+.login-card, .register-card { /* Cibler les deux cartes avec une seule règle */
+    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+    border-radius: 15px;
+    padding: 2.5rem !important; /* Padding interne généreux, utilisez !important si Bootstrap a une règle plus spécifique */
+    box-shadow: 0 8px 15px rgba(0,0,0,.15);
+    max-width: 450px; /* Légèrement augmenté pour mieux s'adapter */
+    width: 90%;
+    margin-left: auto; /* Centre la carte si l'écran est plus large que max-width */
+    margin-right: auto;
+}
+
+/* Ajustements pour les éléments à l'intérieur des cartes d'authentification */
+.login-card .card-title, .register-card .card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.login-card .text-muted.mt-2, .register-card .text-muted.mt-2 {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.login-card .form-label, .register-card .form-label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.login-card .form-control, .register-card .form-control {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    box-shadow: none;
+    color: #555;
+    font-size: 1rem;
+}
+
+.login-card .form-control::placeholder, .register-card .form-control::placeholder {
+    color: #aaa;
+}
+
+.login-card .form-control:focus, .register-card .form-control:focus {
+    border-color: #E2B27E;
+    box-shadow: 0 0 0 0.25rem rgba(226, 178, 126, 0.25);
+}
+
+.login-card .btn-dark, .register-card .btn-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.login-card .btn-dark:hover, .register-card .btn-dark:hover {
+    background-color: #23272b;
+    border-color: #23272b;
+}
+
+.login-card .text-decoration-none, .register-card .text-decoration-none {
+    text-decoration: none !important;
+}
+
+.login-card .text-muted a, .register-card .text-muted a {
+    color: #E2B27E;
+    font-weight: bold;
+}
+
+.login-card .text-muted a:hover, .register-card .text-muted a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries pour la réactivité */
+@media (max-width: 767.98px) {
+    .login-card, .register-card {
+        padding: 1.5rem !important;
+    }
+/* Ajoutez ou mettez à jour cette section dans votre style.css */
+
+
+/* Optionnel: Ajouter un overlay sombre pour améliorer la lisibilité du texte par-dessus l'image */
+.background-image-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Overlay noir semi-transparent (30%), ajustez l'opacité */
+    z-index: 1; /* S'assure que l'overlay est au-dessus de l'image */
+}
+
+.background-image-section .container {
+    position: relative;
+    z-index: 2; /* S'assure que le contenu du container (texte) est au-dessus de l'overlay */
+}
+
+/* Assurez-vous que votre image d'étagères est responsive */
+.hero-bottom-image {
+    max-width: 100%; /* L'image ne débordera pas de son conteneur */
+    height: auto; /* Garde les proportions de l'image */
+    display: block; /* Supprime l'espace sous l'image */
+    margin-left: auto; /* Centre l'image si elle est plus petite que la largeur du conteneur */
+    margin-right: auto;
+    /* Ajoutez des marges si vous souhaitez plus d'espace autour de cette image spécifique */
+    margin-top: 30px; /* Exemple de marge pour séparer du contenu précédent */
+    margin-bottom: 30px; /* Exemple de marge pour séparer du contenu suivant */
+}
+
+/* Assurez-vous que .hero-section a une hauteur suffisante si votre contenu n'est pas suffisant */
+.hero-section {
+    min-height: 400px; /* Ou une hauteur fixe si vous voulez */
+    background-color: #f8f8f8; /* Exemple de couleur de fond pour la section hero si pas d'image */
+    /* ... autres styles de votre hero-section ... */
+}
+
+}
