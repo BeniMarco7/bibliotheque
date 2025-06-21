@@ -9,13 +9,13 @@ traditionnelle.
 
 Fonctionnalités :
 
--Compte utilisateur (connexion, inscription, déconnexion)
--Page d’accueil avec navigation
--Consultation des livres avec filtres (par prix, genre, tri par date, prix, etc.)
--Recherche de livres par mots-clés
--Page détaillée par livre
--Ajout de livres au panier
--Panier avec validation de l’achat
+- Compte utilisateur (connexion, inscription, déconnexion)
+- Page d’accueil avec navigation
+- Consultation des livres avec filtres (par prix, genre, tri par date, prix, etc.)
+- Recherche de livres par mots-clés
+- Page détaillée par livre
+- Ajout de livres au panier
+-  Panier avec validation de l’achat
 - Bibliothèque personnelle (historique d’achats, les livres achetés sont visibles dans la bibliothèque de l’utilisateur
 - Système de rôles (Admin / Utilisateur)
 - Page admin avec gestion des utilisateurs
