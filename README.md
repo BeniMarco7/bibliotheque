@@ -6,7 +6,7 @@ Nous avons imaginé un système libre, sans abonnement obligatoire : l’utilisa
 pour offrir un modèle moderne inspiré des usages actuels (musique, vidéo, jeux). Le fond marron de l’interface rappelle le bois des étagères de bibliothèque 
 traditionnelle.
 
-Mode d'emploi : 
+# Mode d'emploi : 
 
 - Télécharger l’archive ZIP du projet (ou cloner le dépôt Git s’il y en a un).
 - Décompresser le dossier bibliotheque sur votre ordinateur.
@@ -27,7 +27,8 @@ http://localhost/bibliotheque/
 
 
 
-Fonctionnalités :
+
+# Fonctionnalités :
 
 - Compte utilisateur (connexion, inscription, déconnexion)
 - Page d’accueil avec navigation
